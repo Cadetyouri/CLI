@@ -1,15 +1,18 @@
-class Characters
-    #attr_accessor :name , :age , :location
-    @@all=[]
+class Characters 
+  attr_accessor :name ,:status ,:species,:gender, :origin
+  @@all=[]
+  
+  def initialize(data_a)
+    self.name=data_a["name"]
+    self.status=data_a["status"]
+    self.species=data_a["species"]
+    self.gender=data_a["gender"]
+    self.origin=data_a["origin"]
+    @@all << self 
+  end 
+  
+  def self.all 
+    @@all
+  end 
 
-    def initialize(name:,age:,location:)
-        args.each {|key, value, ahd | self.send("#{key}=", value" , "ahd)}
-    end
-
-    def self.all
-      @@all
-    end 
 end
-
-
-# args.each {|key, value | self.send("#{key}=", value")}
