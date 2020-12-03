@@ -135,7 +135,7 @@ class Cli
     end 
 
     def info_charac
-        puts "Select the character that you're interested in..."
+        puts "Select the character that you're interested in... or type exit"
         details_a 
     end 
     def input_select 
@@ -150,7 +150,7 @@ class Cli
             character=Characters.all[index]
             displaying_infos(character)
             info_charac
-            elsif input == "exit"
+            elsif input_select == "exit"
                 exit_pro
             else
                 invalid
