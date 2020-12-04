@@ -88,11 +88,15 @@ class Cli
             puts " "
             menu
         elsif input == "2"
-            puts ""
             episode_list 
+            puts " "
+            menu
            
-        elsif input = "3"
-              info_charac
+        elsif input == "3"
+              puts " "
+              info_charac  
+
+
         elsif input == "exit"
               exit_pro
         else
@@ -102,26 +106,25 @@ class Cli
         end
     end 
     def get_input
-        print "Please enter a number to display your interest or type exit: "
+        puts  "Please enter a number to display your interest or type exit: "
         gets.chomp
     end 
     def list_characters
         Characters.all.each.with_index(1) do |characters, index|
             puts "#{index}. #{characters.name}"
         end 
+        puts " "
     end 
 
     def episode_list
         Episode.all.each.with_index(1) do |episode , index |
-            puts "#{index}..: #{episode.name} .E. #{episode.air_date} S #{episode.episode}.."
+            puts "#{index}:   Episode_name------------#{episode.name}----------Air_date--------#{episode.air_date}--------Episode------#{episode.episode} |"
         end 
         menu
     end 
     def invalid
         puts "hmmm !look like you got lost please try again."
         puts " "
-        menu 
-
     end 
     def exit_pro
         index= 5 
@@ -130,32 +133,36 @@ class Cli
             sleep(0.5)
             index -= 1
         end
-        puts "Goodbye Friend!"
+        puts "I turned myself into a pickle, Morty! Boom! Big reveal: I'm a pickle. What do you think about that? I turned myself into a pickle! W-what are you just staring at me for, bro. I turned myself into a pickle, Morty!"
         exit
     end 
 
     def info_charac
-        puts "Select the character that you're interested in... or type exit"
-        details_a 
+       # list_characters
+        puts "Select the character that you're interested in... or type exit to go back to main menu "
+        puts " "
+        details_a
     end 
+  
     def input_select 
-        print  "Select your number or type exit: "
+        
+        print  "Type number to choose or ==> exit  to close "
         gets.chomp
     end 
     def details_a
         input=input_select
-        if input.to_i.between?(1,Characters.all.length)
+            if input.to_i.between?(1,Characters.all.length)
             input = input.to_i - 1 
             index=input.to_i
             character=Characters.all[index]
             displaying_infos(character)
             info_charac
-            elsif input_select == "exit"
-                exit_pro
+            elsif input == "exit"
+                   menu
+                  
             else
                 invalid
-            end 
-        menu
+            end
     end 
 
     def displaying_infos(character)
