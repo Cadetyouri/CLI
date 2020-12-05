@@ -125,6 +125,7 @@ class Cli
     def invalid
         puts "hmmm !look like you got lost please try again."
         puts " "
+        menu
     end 
     def exit_pro
         index= 5 
