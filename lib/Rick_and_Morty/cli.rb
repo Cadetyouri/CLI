@@ -159,7 +159,7 @@ class Cli
             displaying_infos(character)
             info_charac
             elsif input == "exit"
-                   menu
+                menu
                   
             else
                 invalid
